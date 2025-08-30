@@ -5,7 +5,7 @@ import 'package:news/core/constants/assets.dart';
 import 'package:news/core/constants/color_pallete.dart';
 
 class CustomDrawer extends StatefulWidget {
-  CustomDrawer({super.key, required this.onTap});
+  const CustomDrawer({super.key, required this.onTap});
 
   final Function onTap;
 

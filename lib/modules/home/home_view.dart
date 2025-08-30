@@ -3,11 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:news/core/constants/assets.dart';
 import 'package:news/modules/home/model/category_data_model.dart';
+import 'package:news/modules/home/pages/category_details_view.dart';
 import 'package:news/modules/home/widgets/category_card_widget.dart';
 import 'package:news/modules/home/widgets/custom_drawer.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -99,7 +100,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
               ),
             )
-          : Text(selectedCategory!.id),
+          : CategoryDetailsView(categoryDataModel: selectedCategory!),
     );
   }
 
