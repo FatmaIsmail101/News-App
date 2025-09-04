@@ -1,10 +1,13 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/core/constants/assets.dart';
 import 'package:news/core/constants/color_pallete.dart';
+import 'package:news/core/extension/provider/theme_provider.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key, required this.onTap});
@@ -17,13 +20,14 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   int selectedIndex = 0;
-
+  int selectedIndexTheme = 0;
   // القيم الأساسية (ثابتة)
   List<String> themes = ['light', 'dark'];
   List<String> languages = ['en', 'ar'];
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeProvider>(context);
     final theme = Theme.of(context);
 
     return Container(
@@ -116,17 +120,29 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   size: 30.r,
                 ),
               ),
-              initialItem: themes[0].tr(), // أول قيمة مترجمة
-              items: themes.map((t) => t.tr()).toList(),
+              initialItem:
+                  themes[selectedIndexTheme] ==
+                      provider.changeTheme(ThemeMode.light)
+                  ? 'light'.tr()
+                  : "dark", // أول قيمة مترجمة
+              items: themes,
               onChanged: (value) {
                 // هنا ممكن تغير الـ theme بتاع الابلكيشن
+                if (value == themes[0]) {
+                  provider.changeTheme(ThemeMode.light);
+                } else if (value == themes[1]) {
+                  provider.changeTheme(ThemeMode.dark);
+                }
               },
             ),
           ),
 
-          Divider(color: Colors.white, thickness: 2, indent: 20, endIndent: 20),
-
-          // Language section
+          Divider(
+            color: Colors.white,
+            thickness: 2.h,
+            indent: 20.w,
+            endIndent: 20.w,
+          )// Language section
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
             child: Bounceable(

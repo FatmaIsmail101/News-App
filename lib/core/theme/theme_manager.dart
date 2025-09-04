@@ -6,6 +6,7 @@ import '../constants/color_pallete.dart';
 
 abstract class AppThemeManager {
   static ThemeData lightTheme = ThemeData(
+
     primaryColor: ColorPallete.textDark,
     scaffoldBackgroundColor: ColorPallete.backgroundLight,
     textTheme: GoogleFonts.interTextTheme().copyWith(
@@ -37,7 +38,8 @@ abstract class AppThemeManager {
     ),
     hintColor: ColorPallete.backgroundLight,
     highlightColor: ColorPallete.backgroundLight,
-    drawerTheme: DrawerThemeData(backgroundColor: ColorPallete.backgroundLight),
+    drawerTheme: DrawerThemeData(backgroundColor: ColorPallete.backgroundLight,
+    ),
     appBarTheme: AppBarTheme(
       foregroundColor: ColorPallete.backgroundLight,
       iconTheme: IconThemeData(color: ColorPallete.backgroundLight),
@@ -65,7 +67,9 @@ abstract class AppThemeManager {
   );
 
   static ThemeData darkTheme = ThemeData(
-    drawerTheme: DrawerThemeData(backgroundColor: ColorPallete.backgroundDark),
+    drawerTheme: DrawerThemeData(
+
+        backgroundColor: ColorPallete.backgroundDark),
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
@@ -77,6 +81,7 @@ abstract class AppThemeManager {
         fontWeight: FontWeight.bold,
         fontSize: 12,
       ),
+
       unselectedIconTheme: IconThemeData(color: ColorPallete.textDark),
       unselectedLabelStyle: TextStyle(
         color: ColorPallete.textDark,

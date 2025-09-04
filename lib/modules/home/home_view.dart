@@ -48,6 +48,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
+
       appBar: AppBar(
         actions: [
           Padding(
@@ -65,7 +66,8 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
       ),
       drawer: CustomDrawer(
-        onTap: () {
+
+      onTap: () {
           setState(() {
             selectedCategory = null;
           });
