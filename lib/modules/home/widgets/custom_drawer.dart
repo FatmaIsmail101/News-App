@@ -136,7 +136,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   ImageIcon(
                     AssetImage(AppAssets.language),
                     color: Colors.white,
-                  )SizedBox(width: 8.w),
+                  ),
+                  SizedBox(width: 8.w),
                   Text(
                     "language".tr(),
                     style: theme.textTheme.headlineSmall!.copyWith(
