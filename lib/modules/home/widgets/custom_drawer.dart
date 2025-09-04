@@ -1,13 +1,12 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/core/constants/assets.dart';
 import 'package:news/core/constants/color_pallete.dart';
 import 'package:news/core/extension/provider/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key, required this.onTap});
@@ -143,7 +142,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             indent: 20.w,
             endIndent: 20.w,
           )// Language section
-          Padding(
+          , Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0.w, vertical: 16.h),
             child: Bounceable(
               onTap: () {},
