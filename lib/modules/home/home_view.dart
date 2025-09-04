@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/core/constants/assets.dart';
 import 'package:news/modules/home/model/category_data_model.dart';
 import 'package:news/modules/home/pages/category_details_view.dart';
@@ -16,25 +18,29 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   List<CategoryDataModel> category = [
-    CategoryDataModel(id: 'general', title: 'General', img: AppAssets.general),
+    CategoryDataModel(
+        id: 'general', title: 'general'.tr(), img: AppAssets.general),
     CategoryDataModel(
       id: 'business',
-      title: 'Business',
+      title: 'business'.tr(),
       img: AppAssets.business,
     ),
     CategoryDataModel(
       id: 'entertainment',
-      title: 'Entertainment',
+      title: 'entertainment'.tr(),
       img: AppAssets.entertainment,
     ),
-    CategoryDataModel(id: 'health', title: 'Health', img: AppAssets.health),
-    CategoryDataModel(id: 'science', title: 'Science', img: AppAssets.science),
+    CategoryDataModel(
+        id: 'health', title: 'health'.tr(), img: AppAssets.health),
+    CategoryDataModel(
+        id: 'science', title: 'science'.tr(), img: AppAssets.science),
     CategoryDataModel(
       id: 'technology',
-      title: 'Technology',
+      title: 'technology'.tr(),
       img: AppAssets.technology,
     ),
-    CategoryDataModel(id: 'sports', title: 'Sports', img: AppAssets.sports),
+    CategoryDataModel(
+        id: 'sports', title: 'sports'.tr(), img: AppAssets.sports),
   ];
   CategoryDataModel? selectedCategory;
 
@@ -45,7 +51,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0.r),
             child: ImageIcon(
               AssetImage(AppAssets.searchIcon),
               color: Colors.black,
@@ -53,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
         title: Text(
-          selectedCategory == null ? "Home" : selectedCategory!.title,
+          selectedCategory == null ? "Home".tr() : selectedCategory!.title.tr(),
           style: theme.textTheme.headlineSmall,
         ),
         centerTitle: true,
@@ -68,15 +74,15 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: selectedCategory == null
           ? Padding(
-              padding: const EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(15.0.r),
               child: SingleChildScrollView(
                 physics: ClampingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: 16,
+                  spacing: 16.h,
                   children: [
                     Text(
-                      "Good Morning \nHere is Some News For You",
+                      "good Morning \nHere is Some News For You".tr(),
                       style: theme.textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
@@ -92,7 +98,7 @@ class _HomeViewState extends State<HomeView> {
                         );
                       },
                       separatorBuilder: (context, index) {
-                        return SizedBox(height: 16);
+                        return SizedBox(height: 16.h);
                       },
                       itemCount: category.length,
                     ),

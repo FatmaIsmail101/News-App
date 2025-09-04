@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:news/models/articales_data.dart';
 
@@ -43,14 +44,14 @@ class ArticleItemWidget extends StatelessWidget {
             errorWidget: (context, url, error) => Icon(Icons.error, size: 50),
           ),
           Text(
-            articlesData.title,
+            articlesData.title.tr(),
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                articlesData.source.name ?? '',
+                articlesData.source.name.tr() ?? '',
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -58,7 +59,7 @@ class ArticleItemWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                articlesData.publishedAt ?? '',
+                articlesData.publishedAt.tr() ?? '',
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
